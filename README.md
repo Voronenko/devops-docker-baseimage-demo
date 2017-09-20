@@ -523,7 +523,8 @@ services:
 volumes:
   temp-space:
     docker: {}
-    ```
+
+```
 
 ### tini init system based, with supervisor as service manager
 
