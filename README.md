@@ -608,6 +608,8 @@ More examples on https://github.com/Voronenko/devops-docker-baseimage-demo
 
 ## Few figures on produced sizes
 
+```
+
 Base system:                               ubuntu 16.04
 Init system:                               phusion_init
 Base image with all services:              268 MB / 101 MB on docker.hub 
@@ -615,6 +617,7 @@ Base image with demo nginx app installed:  313 MB / 133 MB on docker hub
 
 phusion/baseimage:                         225 MB / 84 MB on docker hub
 
+```
 
 ## Summary
 
