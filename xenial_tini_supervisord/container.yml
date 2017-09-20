@@ -1,0 +1,39 @@
+version: "2"
+settings:
+  conductor_base: ubuntu:16.04
+  volumes:
+   - temp-space:/tmp   # Used to copy static content between containers
+
+services:
+
+   tini-supervisord:
+     from: ubuntu:16.04
+     container_name: api
+     roles:
+       - {
+           role: "softasap.sa-container-bootstrap",
+           container_init: "tini-init",
+           container_svc: "supervisord"
+         }
+       - {
+           role: "softasap.sa-nginx-container",
+           container_init: "tini-init",
+           container_svc: "supervisord"
+         }
+       - {
+           role: "../custom-roles/app-nginx-stub-deploy",
+           container_init: "tini-init",
+           container_svc: "supervisord"
+         }
+     expose:
+       - '8000'
+       - '22'
+     volumes:
+        - temp-space:/tmp   # Used to copy static content between containers
+     environment:
+        IN_DOCKER: "1"         
+
+volumes:
+  temp-space:
+    docker: {}
+
