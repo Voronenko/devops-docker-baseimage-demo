@@ -417,15 +417,14 @@ Sorry for repeating, but let me emphasize once more: if you want alternative to 
 ansible-container. Ansible-container provides better alternative to the `command && command && command` (and so on) syntax you’ve been struggling with to build containers. Since Ansible is at the heart of Ansible Container, you can make container builds completely predictable and repeatable, and more over readable.
 
 I have to admit, that although it is already passed 0.9.1, ansible-container is still at it's early ages  with some cumbersome side effects from time to time (https://medium.com/@V_Voronenko/evaluating-ansible-container-as-a-tool-for-custom-docker-containers-build-500a0395a4c8),
-but it really becomes more robust each minor release, thus if you try it know - your production will be ready for concept when it is released...
+but it really becomes more robust each minor release, thus if you try it now - your production will be ready for concept when it is released...
 
 Previously running ansible inside container required installing a lot of unnecessary packages, which was causing bigger image sizes. Ansible-cointainer
 introduced different approach: combination of conductor (managing container with ansible and necessary tools installed) and target container. This allows
 to keep target image size small and this approach will work on any base image, which allows ansible and python to be installed.
 
 
-
-Aim of current proof of concept:  build bootstrap role for building base application image, and thus simplify application play itself.
+Aim of the current proof of concept:  build bootstrap role for building base application image, and thus simplify application play itself.
 
 We want: select preferred init system: tini, dumb-init or init approach by Phusion (phusion-init)
 
@@ -615,5 +614,6 @@ phusion/baseimage:                         225 MB / 84 MB on docker hub
 
 
 ## Summary
+
 Ansible-container, once it reaches stable version hopefully this year, appears to be very promising tool for introducing complex docker based build 
 pipelines. In addition, ansible community allows you to re-use number of available roles - that potentially can streamline your deployment implementation path.
