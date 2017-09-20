@@ -32,6 +32,7 @@ You can launch building process using any tool you like.  From my experience - I
 `.projmodules` - list of dependencies (roles, deployables, etc) needed to compile base image. Format similar to gitmodules, but without direct links to commit. Example:
 
 ```
+
 [submodule "roles/sa-nginx-container"]
         path = roles/softasap.sa-nginx-container
         url = https://github.com/softasap/sa-nginx-container.git
@@ -482,6 +483,7 @@ Take a look on role example, that might be used to build such base image:  https
 Typical ansible-container play used to build application image using your base play one might look as:
 
 ### tini init system based, with supervisor as service manager
+
 ```
 version: "2"
 settings:
